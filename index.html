@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#06080e" id="themeMetaColor" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Md. Nahian Abid Tonoy — Portfolio</title>
+  <meta name="description" content="Portfolio of Md. Nahian Abid Tonoy — 1st-year Computer Science &amp; Engineering student at Southeast University and freelance Virtual Assistant specializing in data entry, spreadsheet management, and web research." />
+  <meta name="author" content="Md. Nahian Abid Tonoy" />
+
+  <!-- Anti-Flicker Theme Engine -->
+  <script>
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#06080e',
+            brandSurface: '#0b0f19',
+            brandLight: '#f8fafc',
+            cyanAccent: '#06b6d4',
+            cyanLight: '#0891b2',
+            emeraldAccent: '#10b981',
+            indigoAccent: '#6366f1',
+          },
+          fontFamily: {
+            head: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'glass-light': '0 8px 32px 0 rgba(0, 0, 0, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9)',
+            'glass-dark': '0 12px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08)',
+            'glow-cyan': '0 0 30px -5px rgba(6, 182, 212, 0.3)',
+            'glow-emerald': '0 0 30px -5px rgba(16, 185, 129, 0.3)',
+          }
+        },
+      },
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    /* Refined Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-thumb { background: #1e293b; }
+    ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+
+    ::selection { background: rgba(6, 182, 212, 0.25); color: inherit; }
+    * { -webkit-tap-highlight-color: transparent; }
+
+    /* Frosted Glass Core Tokens */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    .dark .glass-panel {
+      background: rgba(11, 15, 25, 0.55);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dark .glass-card {
+      background: rgba(13, 18, 30, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .glass-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(6, 182, 212, 0.45);
+        box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+      }
+      .dark .glass-card:hover {
+        background: rgba(15, 23, 42, 0.7);
+        border-color: rgba(6, 182, 212, 0.35);
+        box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    /* Glass Badges & Standalone Pills */
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+    }
+    .dark .glass-pill {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .glass-pill:hover {
+        transform: translateY(-1.5px);
+        border-color: rgba(6, 182, 212, 0.5);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 6px 16px -4px rgba(6, 182, 212, 0.15);
+      }
+      .dark .glass-pill:hover {
+        border-color: rgba(6, 182, 212, 0.4);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 6px 20px -4px rgba(6, 182, 212, 0.25);
+      }
+    }
+
+    /* Modern Mesh Grid */
+    .mesh-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    }
+    .dark .mesh-grid {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    /* Pulse Aura */
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(1.04); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 8s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-[#f6f8fc] dark:bg-brandDark text-slate-800 dark:text-slate-100 font-body antialiased min-h-screen relative overflow-x-hidden transition-colors duration-300">
+
+  <!-- ================= AMBIENT BACKGROUND GLOWS ================= -->
+  <div class="fixed top-0 left-1/4 w-[550px] h-[550px] bg-cyan-500/15 dark:bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse-slow"></div>
+  <div class="fixed top-1/3 right-5 w-[500px] h-[500px] bg-indigo-500/15 dark:bg-indigo-500/15 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-1/4 left-5 w-[450px] h-[450px] bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-5 right-1/4 w-[500px] h-[500px] bg-purple-500/10 dark:bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  <div class="fixed inset-0 mesh-grid pointer-events-none -z-10"></div>
+
+  <!-- Mobile Menu Backdrop -->
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md z-40 hidden transition-opacity opacity-0 md:hidden"></div>
+
+  <!-- ================= FLOATING ISLAND NAVBAR ================= -->
+  <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none" id="navbar">
+    <div class="max-w-4xl w-full glass-panel rounded-2xl px-4 sm:px-6 h-14 flex items-center justify-between pointer-events-auto border border-white/80 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-2xl">
+      
+      <!-- Logo / Name -->
+      <a href="#hero" class="font-head text-base sm:text-lg font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+        <span>Nahian</span>
+        <span class="text-cyan-600 dark:text-cyan-400">Abid</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 ml-0.5"></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 font-mono text-xs text-slate-600 dark:text-slate-400">
+        <a href="#hero" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">Home</a>
+        <a href="#about" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">About</a>
+        <a href="#services" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">Services</a>
+        <a href="#education" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">Education</a>
+        <a href="#skills" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">Skills</a>
+        <a href="#contact" class="nav-item px-3 py-1.5 rounded-xl hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">Contact</a>
+      </nav>
+
+      <!-- Right Controls: Theme Toggle & Hamburger -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" aria-label="Toggle dark/light theme" class="w-9 h-9 rounded-xl glass-pill flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all active:scale-95 focus:outline-none">
+          <!-- Sun Icon (shows in Dark) -->
+          <svg class="w-4 h-4 hidden dark:block text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (shows in Light) -->
+          <svg class="w-4 h-4 block dark:hidden text-slate-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menuToggle" aria-label="Toggle mobile menu" class="md:hidden w-9 h-9 rounded-xl glass-pill flex flex-col items-center justify-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white active:scale-95 transition-all focus:outline-none">
+          <span class="w-4 h-0.5 bg-current transition-all duration-300 origin-center" id="bar1"></span>
+          <span class="w-4 h-0.5 bg-current transition-all duration-300" id="bar2"></span>
+          <span class="w-4 h-0.5 bg-current transition-all duration-300 origin-center" id="bar3"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-20 inset-x-4 glass-panel rounded-2xl p-4 flex-col gap-1.5 font-mono text-sm shadow-2xl pointer-events-auto border border-white/80 dark:border-white/10">
+      <a href="#hero" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>Home</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <a href="#about" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>About</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <a href="#services" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>Services</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <a href="#education" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>Education</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <a href="#skills" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>Skills</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <a href="#contact" class="mobile-nav-link text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+        <span>Contact</span>
+        <span class="text-xs text-slate-400">&rarr;</span>
+      </a>
+      <div class="pt-2 border-t border-slate-200/60 dark:border-white/10 mt-1">
+        <a href="https://wa.me/8801315383246" target="_blank" rel="noopener" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-400 dark:hover:bg-cyan-300 text-white dark:text-brandDark font-head font-bold text-xs shadow-md">
+          <span>Chat on WhatsApp</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative pt-24 sm:pt-28 lg:pt-36">
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="hero" class="max-w-6xl mx-auto px-5 sm:px-8 pb-16 sm:pb-24">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Hero Content (7 Cols) -->
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+          
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2.5 glass-pill px-3.5 py-1.5 rounded-full mb-6 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="font-mono text-xs text-slate-700 dark:text-slate-300 font-medium">Available for Remote Projects &bull; Dhaka, BD</span>
+          </div>
+
+          <!-- Main Title -->
+          <h1 class="font-head text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08] mb-4">
+            Md. Nahian Abid <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-cyan-600 via-cyan-500 to-indigo-500 dark:from-cyan-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">Tonoy</span>
+          </h1>
+
+          <!-- Role / Discipline -->
+          <p class="font-mono text-xs sm:text-sm text-cyan-700 dark:text-cyan-400 font-semibold tracking-wide uppercase mb-5 flex items-center gap-2">
+            <span>CSE Undergraduate</span>
+            <span class="text-slate-300 dark:text-slate-700">&bull;</span>
+            <span class="text-slate-600 dark:text-slate-400 font-normal normal-case">Southeast University</span>
+          </p>
+
+          <!-- Bio -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-8">
+            First-year Computer Science &amp; Engineering student with a disciplined academic foundation (Double Golden GPA 5.00). Delivering high-speed typing, structured spreadsheets, and precision web research for international clients.
+          </p>
+
+          <!-- CTA Actions -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-10">
+            <a href="https://wa.me/8801315383246" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-500 hover:to-cyan-600 dark:from-cyan-400 dark:to-cyan-500 dark:hover:from-cyan-300 dark:hover:to-cyan-400 text-white dark:text-brandDark font-head font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-cyan-600/20 dark:shadow-cyan-400/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.482 1.34 4.997L2 22l5.144-1.35a9.96 9.96 0 0 0 4.86 1.238h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.928-7.068a9.935 9.935 0 0 0-7.073-2.82zm0 18.174h-.003a8.2 8.2 0 0 1-4.176-1.144l-.3-.178-3.053.801.815-2.976-.196-.306a8.18 8.18 0 0 1-1.256-4.374c0-4.522 3.68-8.2 8.203-8.2 2.19 0 4.249.854 5.797 2.404a8.14 8.14 0 0 1 2.399 5.802c0 4.523-3.679 8.171-8.23 8.171z"/></svg>
+              <span>Chat on WhatsApp</span>
+            </a>
+
+            <button onclick="copyToClipboard('nahianabid89@gmail.com', this, 'Email Copied!')" class="inline-flex items-center justify-center gap-2 glass-card px-5 py-3.5 rounded-xl text-slate-800 dark:text-white font-mono text-xs hover:border-cyan-500/50 transition-all active:scale-[0.98]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-cyan-600 dark:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
+              <span class="btn-text">Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Bento Metric Badges -->
+          <div class="grid grid-cols-3 gap-3.5 w-full max-w-md">
+            <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
+              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block">5.00</span>
+              <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-0.5">HSC Science</span>
+            </div>
+            <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
+              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block">5.00</span>
+              <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-0.5">SSC Science</span>
+            </div>
+            <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
+              <span class="font-head font-extrabold text-2xl text-cyan-600 dark:text-cyan-400 block">1st Yr</span>
+              <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-0.5">CSE Major</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Studio Portrait (5 Cols) -->
+        <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+          <div class="relative w-full max-w-xs sm:max-w-sm">
+            
+            <!-- Soft Ambient Backlight -->
+            <div class="absolute -inset-3 bg-gradient-to-tr from-cyan-500/25 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-2xl pointer-events-none"></div>
+
+            <!-- Portrait Frame -->
+            <div class="relative rounded-3xl overflow-hidden glass-card p-2 sm:p-2.5">
+              <div class="rounded-2xl overflow-hidden bg-slate-100/50 dark:bg-slate-950/60 aspect-[3/4] relative group">
+                
+                <!-- Swaps automatically between Nahian.png in light and Nahian-studio-dark.png in dark -->
+                <img id="heroPortrait" src="Nahian-studio-dark.png" alt="Md. Nahian Abid Tonoy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" />
+                
+                <!-- Floating Info Badge on Portrait -->
+                <div class="absolute bottom-3 inset-x-3 p-3 rounded-2xl glass-panel flex items-center justify-between shadow-xl">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <div>
+                      <p class="font-head text-xs font-bold text-slate-900 dark:text-white">Md. Nahian Abid Tonoy</p>
+                      <p class="font-mono text-[10px] text-slate-500">Southeast Univ &bull; CSE</p>
+                    </div>
+                  </div>
+                  <span class="font-mono text-[10px] text-cyan-700 dark:text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20 font-semibold">Online</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= ABOUT BENTO SECTION ================= -->
+    <section id="about" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 border-t border-slate-200/80 dark:border-white/5">
+      
+      <div class="mb-10">
+        <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1.5">01 &bull; Story &amp; Discipline</span>
+        <h2 class="font-head text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          About Me
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-5">
+        
+        <!-- Story Card (7 cols) -->
+        <div class="md:col-span-7 glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+          <h3 class="font-head text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+            Disciplined, Tech-Minded &amp; Detail-Oriented
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            I am currently studying <span class="text-slate-900 dark:text-white font-semibold">B.Sc. in Computer Science &amp; Engineering</span> at Southeast University, Dhaka. Coming from a disciplined background in prestigious Cantonment educational institutions with perfect <span class="text-slate-900 dark:text-white font-semibold">Double Golden GPA 5.00</span> in both SSC and HSC, I bring that same standard of rigor and precision to everything I build.
+          </p>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Alongside my core computer science studies, I collaborate with clients worldwide as a Virtual Assistant, transforming chaotic spreadsheets, unstructured web data, and business records into clean, organized, and actionable databases.
+          </p>
+          
+          <div class="pt-4 border-t border-slate-200/60 dark:border-white/5 flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-3 py-1 rounded-xl glass-pill text-cyan-700 dark:text-cyan-400">&bull; Fast Learner</span>
+            <span class="px-3 py-1 rounded-xl glass-pill text-emerald-700 dark:text-emerald-400">&bull; High Accuracy</span>
+            <span class="px-3 py-1 rounded-xl glass-pill text-slate-700 dark:text-slate-300">&bull; Prompt Turnaround</span>
+          </div>
+        </div>
+
+        <!-- Quick Facts Bento (5 cols) -->
+        <div class="md:col-span-5 glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-6">
+          <div>
+            <h4 class="font-head text-base font-bold text-slate-900 dark:text-white mb-4">Quick Facts</h4>
+            <ul class="space-y-3 font-mono text-xs text-slate-600 dark:text-slate-400">
+              <li class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-white/5 gap-2">
+                <span class="text-slate-500">Status</span>
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Undergrad 1st Year</span>
+              </li>
+              <li class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-white/5 gap-2">
+                <span class="text-slate-500">University</span>
+                <span class="text-slate-900 dark:text-white font-medium text-right">Southeast University</span>
+              </li>
+              <li class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-white/5 gap-2">
+                <span class="text-slate-500">Location</span>
+                <span class="text-slate-900 dark:text-white font-medium text-right">Dhaka, Bangladesh</span>
+              </li>
+              <li class="flex items-center justify-between pb-2.5 border-b border-slate-100 dark:border-white/5 gap-2">
+                <span class="text-slate-500">Direct Contact</span>
+                <span class="text-cyan-600 dark:text-cyan-400 font-medium text-right">WhatsApp &bull; Email</span>
+              </li>
+              <li class="flex items-center justify-between gap-2">
+                <span class="text-slate-500">Availability</span>
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold text-right">Flexible Remote</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 dark:border-white/5">
+            <a href="#contact" class="inline-flex items-center justify-center w-full py-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 dark:bg-cyan-400/10 dark:hover:bg-cyan-400/20 border border-cyan-500/20 font-mono text-xs text-cyan-700 dark:text-cyan-400 font-semibold transition-all">
+              <span>Get in touch &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section id="services" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 border-t border-slate-200/80 dark:border-white/5">
+      
+      <div class="mb-10">
+        <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1.5">02 &bull; Capabilities</span>
+        <h2 class="font-head text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Services
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-1 max-w-xl">
+          High-accuracy administrative assistance and data support designed to save your time.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        
+        <!-- Service 1 -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-5 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            </div>
+            <h3 class="font-head text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">Data Entry &amp; Admin</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+              Fast, high-accuracy typing, documentation, and day-to-day administrative support to keep your records spotless.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-500 font-mono border-t border-slate-100 dark:border-white/5 pt-4">
+            <li class="flex items-center gap-2"><span class="text-cyan-600 dark:text-cyan-400">&check;</span> High-speed typing</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-600 dark:text-cyan-400">&check;</span> Copy-paste precision</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-600 dark:text-cyan-400">&check;</span> File organization</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-5 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M9 4v16m6-16v16" /></svg>
+            </div>
+            <h3 class="font-head text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">Excel &amp; Spreadsheets</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+              Cleaning, deduplicating, sorting, and formatting messy dataset records in Microsoft Excel and Google Sheets.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-500 font-mono border-t border-slate-100 dark:border-white/5 pt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-600 dark:text-emerald-400">&check;</span> Data cleaning &amp; sorting</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600 dark:text-emerald-400">&check;</span> Deduplication &amp; formatting</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600 dark:text-emerald-400">&check;</span> Basic formulas &amp; logic</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-5 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.3-4.3"/></svg>
+            </div>
+            <h3 class="font-head text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2">Web Research &amp; Sourcing</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+              Gathering targeted internet data, contact lists, and market information into organized summaries.
+            </p>
+          </div>
+          <ul class="space-y-2 text-xs text-slate-500 font-mono border-t border-slate-100 dark:border-white/5 pt-4">
+            <li class="flex items-center gap-2"><span class="text-indigo-600 dark:text-indigo-400">&check;</span> Contact sourcing</li>
+            <li class="flex items-center gap-2"><span class="text-indigo-600 dark:text-indigo-400">&check;</span> Information lookup</li>
+            <li class="flex items-center gap-2"><span class="text-indigo-600 dark:text-indigo-400">&check;</span> Verified report sheets</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= EDUCATION SECTION ================= -->
+    <section id="education" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 border-t border-slate-200/80 dark:border-white/5">
+      
+      <div class="mb-10">
+        <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1.5">03 &bull; Academic Track</span>
+        <h2 class="font-head text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Education
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- University -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="font-mono text-xs text-cyan-700 dark:text-cyan-400 glass-pill px-3 py-0.5 rounded-full">2026 — Present</span>
+              <span class="font-mono text-xs text-emerald-700 dark:text-emerald-400 glass-pill px-3 py-0.5 rounded-full flex items-center gap-1.5 font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                In Progress
+              </span>
+            </div>
+            <h3 class="font-head text-lg font-bold text-slate-900 dark:text-white">Bachelor of Science in Computer Science &amp; Engineering</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Southeast University &bull; Dhaka, Bangladesh</p>
+          </div>
+          <div class="sm:text-right flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-3 sm:pt-0">
+            <span class="font-mono text-xs text-slate-500 block">Undergraduate 1st Year</span>
+            <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 font-semibold">Major: CSE</span>
+          </div>
+        </div>
+
+        <!-- HSC -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-mono text-xs text-slate-500 glass-pill px-3 py-0.5 rounded-full">2023 — 2024</span>
+            </div>
+            <h3 class="font-head text-lg font-bold text-slate-900 dark:text-white">Higher Secondary Certificate (HSC) — Science</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Cantonment Public College &bull; Science Discipline</p>
+          </div>
+          <div class="sm:text-right flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-3 sm:pt-0">
+            <span class="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold glass-pill px-3.5 py-1 rounded-xl inline-block">
+              GPA 5.00 / 5.00
+            </span>
+          </div>
+        </div>
+
+        <!-- SSC -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-mono text-xs text-slate-500 glass-pill px-3 py-0.5 rounded-full">2021 — 2022</span>
+            </div>
+            <h3 class="font-head text-lg font-bold text-slate-900 dark:text-white">Secondary School Certificate (SSC) — Science</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Cantonment Public School &bull; Science Discipline</p>
+          </div>
+          <div class="sm:text-right flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-3 sm:pt-0">
+            <span class="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-bold glass-pill px-3.5 py-1 rounded-xl inline-block">
+              GPA 5.00 / 5.00
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= SKILLS SECTION (UNBOXED GLASS BADGES) ================= -->
+    <section id="skills" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 border-t border-slate-200/80 dark:border-white/5">
+      
+      <div class="mb-10">
+        <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1.5">04 &bull; Stack &amp; Tools</span>
+        <h2 class="font-head text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Skills &amp; Capabilities
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">
+          Practical tools and technical foundations ready for real-world projects.
+        </p>
+      </div>
+
+      <!-- Unboxed Categorized Pills -->
+      <div class="space-y-8">
+        
+        <!-- Category 1: Spreadsheets & Data Entry -->
+        <div class="pb-6 border-b border-slate-200/60 dark:border-white/5">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+            <h3 class="font-head font-bold text-slate-900 dark:text-white text-base">Spreadsheets &amp; Data Entry</h3>
+            <span class="font-mono text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">&bull; Daily Operations</span>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Microsoft Excel</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Google Sheets</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Fast &amp; Accurate Typing</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Sorting &amp; Filtering</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Data Cleaning</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400">Basic Formulas</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Research & Virtual Assistance -->
+        <div class="pb-6 border-b border-slate-200/60 dark:border-white/5">
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <h3 class="font-head font-bold text-slate-900 dark:text-white text-base">Research &amp; Administrative Support</h3>
+            <span class="font-mono text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">&bull; Sourcing &amp; Organization</span>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">Web &amp; Google Research</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">Contact Sourcing</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">Google Docs &amp; MS Word</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">File Organization</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">Copy-Paste Work</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400">Prompt Communication</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Computer Science Foundations -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+            <h3 class="font-head font-bold text-slate-900 dark:text-white text-base">Academic Track (CSE Foundation)</h3>
+            <span class="font-mono text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">&bull; 1st-Year Undergrad</span>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400">C Programming Basics</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400">Problem-Solving Logic</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400">Computer Fundamentals</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400">Quick Software Learner</span>
+            <span class="px-4 py-2.5 rounded-2xl glass-pill text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400">Detail-Oriented</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 border-t border-slate-200/80 dark:border-white/5">
+      
+      <div class="mb-10 text-center sm:text-left">
+        <span class="font-mono text-xs text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block mb-1.5">05 &bull; Direct Connect</span>
+        <h2 class="font-head text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Get in Touch
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm mt-1 max-w-lg">
+          Available for freelance data entry, virtual assistance, and spreadsheet projects. Reach out directly below:
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 mb-6">
+        
+        <!-- WhatsApp Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-2xl glass-pill flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.36 5.64a9 9 0 11-12.73 0M12 3v9" /></svg>
+            </div>
+            <span class="font-mono text-xs text-slate-500 uppercase tracking-wider block">WhatsApp Direct</span>
+            <p class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-5">+880 1315 383246</p>
+          </div>
+          <a href="https://wa.me/8801315383246" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-700 hover:text-white dark:bg-emerald-400/15 dark:hover:bg-emerald-400 dark:text-emerald-400 dark:hover:text-brandDark border border-emerald-500/30 font-mono text-xs font-bold transition-all active:scale-[0.98]">
+            <span>Start WhatsApp Chat</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+
+        <!-- Email Card -->
+        <div class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-2xl glass-pill flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            </div>
+            <span class="font-mono text-xs text-slate-500 uppercase tracking-wider block">Direct Email</span>
+            <p class="text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-1 mb-5 break-all">nahianabid89@gmail.com</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button onclick="copyToClipboard('nahianabid89@gmail.com', this, 'Copied!')" class="inline-flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-2xl glass-pill font-mono text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]">
+              <span class="btn-text">Copy Email</span>
+            </button>
+            <a href="mailto:nahianabid89@gmail.com" class="inline-flex items-center justify-center gap-1.5 py-3.5 px-3 rounded-2xl bg-cyan-500/15 hover:bg-cyan-600 text-cyan-700 hover:text-white dark:bg-cyan-400/15 dark:hover:bg-cyan-400 dark:text-cyan-400 dark:hover:text-brandDark border border-cyan-500/30 font-mono text-xs font-bold transition-all active:scale-[0.98]">
+              <span>Send Mail</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Response Guarantee Banner -->
+      <div class="p-4 sm:p-5 rounded-2xl glass-panel flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-3 text-xs font-mono text-slate-500">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-slate-700 dark:text-slate-300">Fast response guaranteed &bull; Usually within a few hours</span>
+        </div>
+        <span>Dhaka, Bangladesh &bull; GMT+6</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= MINIMAL SINGLE-ROW FOOTER ================= -->
+  <footer class="border-t border-slate-200/80 dark:border-white/10 bg-white/40 dark:bg-brandDark/40 backdrop-blur-2xl py-8 transition-colors">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+      
+      <!-- Brand & Copyright -->
+      <div class="flex items-center gap-2">
+        <span class="font-head font-bold text-slate-900 dark:text-white text-sm tracking-tight">Nahian <span class="text-cyan-600 dark:text-cyan-400">Abid</span></span>
+        <span class="text-slate-300 dark:text-slate-700">&bull;</span>
+        <span>&copy; 2026 Md. Nahian Abid Tonoy</span>
+      </div>
+
+      <!-- University & Back to Top -->
+      <div class="flex items-center gap-4">
+        <span>Southeast University</span>
+        <span class="text-slate-300 dark:text-slate-700">&bull;</span>
+        <a href="#hero" class="text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1 font-medium">
+          <span>Back to top</span>
+          <span>&uarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-6 inset-x-4 sm:inset-x-auto sm:right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex justify-center sm:justify-end">
+    <div class="bg-slate-900 text-white dark:bg-slate-900 border border-cyan-500/40 text-xs font-mono px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 backdrop-blur-xl">
+      <span class="text-cyan-400 text-sm font-bold">&check;</span>
+      <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // 1. Dark / Light Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const heroPortrait = document.getElementById('heroPortrait');
+    const themeMetaColor = document.getElementById('themeMetaColor');
+
+    function updateThemeAssets(isDark) {
+      if (heroPortrait) {
+        heroPortrait.src = isDark ? 'Nahian-studio-dark.png' : 'Nahian.png';
+      }
+      if (themeMetaColor) {
+        themeMetaColor.setAttribute('content', isDark ? '#06080e' : '#f8fafc');
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+        updateThemeAssets(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+        updateThemeAssets(true);
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
+    // Initialize portrait based on current active class
+    updateThemeAssets(document.documentElement.classList.contains('dark'));
+
+    // 2. Copy to Clipboard
+    function copyToClipboard(text, btnElement, feedbackMsg = 'Copied!') {
+      const onSuccess = () => {
+        showToast(feedbackMsg);
+        if (btnElement) {
+          const textSpan = btnElement.querySelector('.btn-text');
+          if (textSpan) {
+            const originalText = textSpan.innerText;
+            textSpan.innerText = '✓ ' + feedbackMsg;
+            btnElement.classList.add('border-cyan-500');
+            setTimeout(() => {
+              textSpan.innerText = originalText;
+              btnElement.classList.remove('border-cyan-500');
+            }, 2000);
+          }
+        }
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
+      } else {
+        fallbackCopy(text, onSuccess);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        if (cb) cb();
+      } catch (err) {
+        console.error('Copy fallback error:', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.innerText = message;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // 3. Mobile Menu Toggle with Backdrop
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    function setMobileMenu(open) {
+      if (open) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        mobileBackdrop.classList.remove('hidden');
+        setTimeout(() => mobileBackdrop.classList.add('opacity-100'), 10);
+        bar1.classList.add('rotate-45', 'translate-y-2');
+        bar2.classList.add('opacity-0');
+        bar3.classList.add('-rotate-45', '-translate-y-2');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        mobileBackdrop.classList.remove('opacity-100');
+        setTimeout(() => mobileBackdrop.classList.add('hidden'), 200);
+        bar1.classList.remove('rotate-45', 'translate-y-2');
+        bar2.classList.remove('opacity-0');
+        bar3.classList.remove('-rotate-45', '-translate-y-2');
+      }
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isClosed = mobileMenu.classList.contains('hidden');
+        setMobileMenu(isClosed);
+      });
+    }
+
+    if (mobileBackdrop) {
+      mobileBackdrop.addEventListener('click', () => setMobileMenu(false));
+    }
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    // 4. Smooth Scroll with Header Offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          setMobileMenu(false);
+
+          const headerOffset = 90;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // 5. Active Section Scroll Spy
+    const sections = document.querySelectorAll('section[id]');
+    const topNavItems = document.querySelectorAll('.nav-item');
+
+    const setActiveSection = (currentId) => {
+      topNavItems.forEach(item => {
+        const href = item.getAttribute('href').replace('#', '');
+        if (href === currentId) {
+          item.classList.add('text-cyan-600', 'dark:text-cyan-400', 'bg-black/5', 'dark:bg-white/10');
+          item.classList.remove('text-slate-600', 'dark:text-slate-400');
+        } else {
+          item.classList.remove('text-cyan-600', 'dark:text-cyan-400', 'bg-black/5', 'dark:bg-white/10');
+          item.classList.add('text-slate-600', 'dark:text-slate-400');
+        }
+      });
+    };
+
+    setActiveSection('hero');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-25% 0px -55% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
