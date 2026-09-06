@@ -319,11 +319,11 @@
           <!-- Bento Metric Badges -->
           <div class="grid grid-cols-3 gap-3.5 w-full max-w-md">
             <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
-              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block">5.00</span>
+              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block gpa-counter" data-target="5.00">0.00</span>
               <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-0.5">HSC Science</span>
             </div>
             <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
-              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block">5.00</span>
+              <span class="font-head font-extrabold text-2xl text-slate-900 dark:text-white block gpa-counter" data-target="5.00">0.00</span>
               <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider block mt-0.5">SSC Science</span>
             </div>
             <div class="glass-card p-4 rounded-2xl text-center sm:text-left">
@@ -554,7 +554,7 @@
           </div>
           <div class="sm:text-right flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-3 sm:pt-0">
             <span class="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold glass-pill px-3.5 py-1 rounded-xl inline-block">
-              GPA 5.00 / 5.00
+              GPA <span class="gpa-counter" data-target="5.00">0.00</span> / 5.00
             </span>
           </div>
         </div>
@@ -570,7 +570,7 @@
           </div>
           <div class="sm:text-right flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-3 sm:pt-0">
             <span class="font-mono text-xs text-cyan-700 dark:text-cyan-400 font-bold glass-pill px-3.5 py-1 rounded-xl inline-block">
-              GPA 5.00 / 5.00
+              GPA <span class="gpa-counter" data-target="5.00">0.00</span> / 5.00
             </span>
           </div>
         </div>
@@ -879,30 +879,8 @@
       link.addEventListener('click', () => setMobileMenu(false));
     });
 
-    // 4. Smooth Scroll with Header Offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          setMobileMenu(false);
-
-          const headerOffset = 90;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // 5. Active Section Scroll Spy
-    const sections = document.querySelectorAll('section[id]');
+    // GPA Calculator
+        const sections = document.querySelectorAll('section[id]');
     const topNavItems = document.querySelectorAll('.nav-item');
 
     const setActiveSection = (currentId) => {
@@ -932,6 +910,21 @@
     });
 
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    document.querySelectorAll('.gpa-counter').forEach(counter => {
+      const target = parseFloat(counter.dataset.target) || 5;
+      const duration = 1000; // quick, even count-up so it does not linger around 4.xx
+      const start = performance.now();
+      const animate = now => {
+        const progress = Math.min((now - start) / duration, 1);
+        // Linear counting: 0.00 → 5.00 at a constant speed.
+        counter.textContent = (target * progress).toFixed(2);
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
   </script>
 
 </body>
